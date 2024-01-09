@@ -2,8 +2,14 @@
 
 -- npx create-next-app@latest
 
-## Prisma 
+## Caching
+-- Time, On demand and no caching
+-- revalidatePath()
+-- export const generateStaticParams = async() => {};
+
+# Prisma 
 
 -- npm i prisma
 -- npx prisma init --datasource-provider sqlite
 -- npx prisma migrate dev
+
