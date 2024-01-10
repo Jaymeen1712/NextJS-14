@@ -16,3 +16,5 @@
 # NextUI
 -- npm i @nextui-org/react framer-motion
 
+-----------------------------------------------------
+# Zod(validation library)
