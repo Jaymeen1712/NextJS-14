@@ -1,12 +1,13 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
+import { z } from "zod";
+
 import paths from "@/app/path";
 import { auth } from "@/auth";
 import { db } from "@/db";
 import { Topic } from "@prisma/client";
-import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
-import { z } from "zod";
 
 interface CreateTopicFormState {
   errors: {
