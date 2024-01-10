@@ -1,15 +1,12 @@
-import { Button } from "@nextui-org/react";
-import * as actions from "@/actions"
+import TopicCreateForm from "@/components/topics/topic-create-form";
 
 export default function Home() {
   return (
-    <div>
-      <form action={actions.signIn}>
-        <Button type="submit">Sign in</Button>
-      </form>
-      <form action={actions.signOut}>
-        <Button type="submit">Sign out</Button>
-      </form>
+    <div className="grid grid-cols-4 gap-4 p-4">
+      <div className="col-span-3">
+        <h1 className="text-xl m-2">Top posts</h1>
+      </div>
+      <TopicCreateForm />
     </div>
   );
 }
