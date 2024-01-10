@@ -6,6 +6,6 @@ export const signIn = async () => {
   return auth.signIn("github")
 }
 
-export const singOut = async() => {
+export const signOut = async() => {
   return auth.signOut()
 }
