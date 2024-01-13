@@ -1,0 +1,12 @@
+.bulletActiveClass {
+  background-color: #ffffff;
+  opacity: 1;
+  width: 24px;
+  height: 24px;
+  margin: 2px
+}
+
+.bullet {
+  display: flex;
+  justify-content: center;
+}

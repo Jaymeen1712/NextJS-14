@@ -15,7 +15,7 @@ const Header = async () => {
     <NavbarItem key={index}>
       <Link
         href={item.link}
-        className={`text-white hover:${colors.primary.text}  duration-200`}
+        className={`text-white hover:${colors.primary.text} duration-200`}
       >
         {item.name.toUpperCase()}
       </Link>
