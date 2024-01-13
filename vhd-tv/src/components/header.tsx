@@ -7,12 +7,16 @@ import {
   NavbarItem,
 } from "@nextui-org/react";
 import Link from "next/link";
-import { dashboardMenuItems } from "@/utils";
+import { colors, dashboardMenuItems } from "@/utils";
+import Logo from "@/components/logo";
 
 const Header = async () => {
   const menuItems = dashboardMenuItems.map((item, index) => (
     <NavbarItem key={index}>
-      <Link href={`/`} className="text-white">
+      <Link
+        href={item.link}
+        className={`text-white hover:${colors.primary.text}  duration-200`}
+      >
         {item.name.toUpperCase()}
       </Link>
     </NavbarItem>
@@ -21,13 +25,13 @@ const Header = async () => {
   return (
     <Navbar className="shadow mb-6 bg-neutral-950 m-0" height={"90px"}>
       <NavbarBrand>
-        <Link href="/" className="font-bold text-white">
-          VHD
+        <Link href="/">
+          <Logo />
         </Link>
       </NavbarBrand>
 
-      <NavbarContent justify="center">
-        <NavbarItem className="w-3/4">
+      <NavbarContent justify="end">
+        <NavbarItem>
           <Input
             size="sm"
             radius="sm"
@@ -39,6 +43,7 @@ const Header = async () => {
             //   label: "text-white",
             //   input: ["bg-neutral-700"],
             // }}
+            className="min-w-[550px]"
           />
         </NavbarItem>
 
