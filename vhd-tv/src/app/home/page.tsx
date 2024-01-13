@@ -3,7 +3,7 @@ import React from "react";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="bg-neutral-900 flex-1">
       <CarouselContainer />
     </div>
   );

@@ -11,18 +11,20 @@ import img4 from "@/images/wallhaven-1kvqr1.jpg";
 
 const Carousel = () => {
   return (
-    <Swiper
-    // slidesPerView={3}
-    // breakpoints={{ 900: { slidesPerView: 4 } }}
-    // on={{
-    //   slideChange: () => console.log("slide changed"),
-    //   progress: (s, progress) => console.log(`progress is ${progress}`),
-    // }}
-    >
-      <SwiperSlide>
-        <Image src={img1} alt="image" width={900} className="rounded-xl" />
-      </SwiperSlide>
-    </Swiper>
+    <div>
+      <Swiper
+      // slidesPerView={3}
+      // breakpoints={{ 900: { slidesPerView: 4 } }}
+      // on={{
+      //   slideChange: () => console.log("slide changed"),
+      //   progress: (s, progress) => console.log(`progress is ${progress}`),
+      // }}
+      >
+        <SwiperSlide>
+          <Image src={img1} alt="image" width={900} className="rounded-xl" />
+        </SwiperSlide>
+      </Swiper>
+    </div>
   );
 };
 
