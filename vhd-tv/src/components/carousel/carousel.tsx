@@ -18,6 +18,8 @@ import { PaginationOptions } from "swiper/types";
 import CarouselPaginationButtons from "./controls/pagination-buttons";
 
 import "./controls/pagination.css";
+import { Button } from "@nextui-org/react";
+import Link from "next/link";
 
 const pagination: PaginationOptions = {
   clickable: true,
@@ -30,7 +32,7 @@ const Carousel = () => {
 
   return (
     <div className="grid grid-cols-12 items-center justify-center">
-      <div className="col-span-11">
+      <div className="col-span-11 my-16">
         <Swiper
           pagination={pagination}
           modules={[Pagination]}

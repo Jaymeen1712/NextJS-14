@@ -1,6 +1,7 @@
 import { colors } from "@/utils";
-import { Chip } from "@nextui-org/react";
+import { Button, Chip } from "@nextui-org/react";
 import React from "react";
+import { FaPlay } from "react-icons/fa";
 
 interface CarouselDetailsProps {
   chips?: string[];
@@ -33,6 +34,12 @@ const CarouselDetails = ({
       </h1>
       <div className="text-white mb-6">{rating}</div>
       <div className="text-white mb-8">{description}</div>
+      <Button
+        className={`px-8 py-7 rounded-full justify-center items-center ${colors.primary.background} bg-opacity-30 hover:cursor-pointer `}
+      >
+        <FaPlay className={`${colors.primary.text}`} size={15} />
+        <h1 className={`ml-1 ${colors.primary.text}`}>Watch now</h1>
+      </Button>
     </div>
   );
 };
