@@ -11,6 +11,7 @@ import { Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/effect-coverflow";
 
 import CarouselDetails from "./details";
 import { PaginationOptions } from "swiper/types";
@@ -20,7 +21,6 @@ import "./controls/pagination.css";
 
 const pagination: PaginationOptions = {
   clickable: true,
-  // bulletActiveClass: "bulletActiveClass",
 };
 
 const chips = ["HD", "Movie", "2023"];
@@ -35,7 +35,14 @@ const Carousel = () => {
           pagination={pagination}
           modules={[Pagination]}
           ref={swiperRef}
-          // direction="vertical"
+          effect="coverflow"
+          coverflowEffect={{
+            rotate: 20,
+            stretch: 25,
+            depth: 250,
+            modifier: 1,
+            slideShadows: false,
+          }}
         >
           <SwiperSlide>
             <div className="grid grid-cols-2 gap-8 items-center">
