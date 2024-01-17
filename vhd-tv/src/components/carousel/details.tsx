@@ -17,7 +17,7 @@ const CarouselDetails = ({
   description,
 }: CarouselDetailsProps) => {
   return (
-    <div>
+    <div className="h-[75%] grid">
       <div className="flex justify-start items-center mb-4 space-x-2">
         {chips?.map((chip) => (
           <Chip
@@ -33,12 +33,18 @@ const CarouselDetails = ({
         {title}
       </h1>
       <div className="text-white mb-6">{rating}</div>
-      <div className="text-white mb-8">{description}</div>
+      <div className="text-white mb-8 line-clamp-3">{description}</div>
       <Button
-        className={`px-8 py-7 rounded-full justify-center items-center ${colors.primary.background} bg-opacity-30 hover:cursor-pointer `}
+        className={`w-[12rem] px-8 py-7 rounded-full justify-center items-center ${colors.primary.background} bg-opacity-30 hover:cursor-pointer hover:scale-110 hover:bg-opacity-100 group`}
+        disableRipple
       >
-        <FaPlay className={`${colors.primary.text}`} size={15} />
-        <h1 className={`ml-1 ${colors.primary.text}`}>Watch now</h1>
+        <FaPlay
+          className={`${colors.primary.text} group-hover:text-black`}
+          size={15}
+        />
+        <h1 className={`ml-1 ${colors.primary.text} group-hover:text-black`}>
+          Watch now
+        </h1>
       </Button>
     </div>
   );

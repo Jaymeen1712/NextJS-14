@@ -44,13 +44,13 @@ const Carousel = () => {
           }}
         >
           <SwiperSlide>
-            <div className="grid grid-cols-2 gap-8 items-center">
+            <div className="grid grid-cols-2 gap-14 items-center">
               <CarouselImage src={img1} alt="image" />
               <CarouselDetails
                 chips={chips}
                 title={"Napoleon"}
                 rating="3"
-                description="An epic that details the checkered rise and fall of French Emperor Napoleon Bonaparte and his relentless journey to power through the prism of his addictive, volatile relationship with his wife"
+                description="An epic that details the checkered rise and fall of French Emperor Napoleon Bonaparte and his relentless journey to power through the prism of his addictive, volatile relationship with hiswith his wifeetails the checkered rise and fall of French Emperor Napoleon Bonaparte and his relentless journey "
               />
             </div>
           </SwiperSlide>
