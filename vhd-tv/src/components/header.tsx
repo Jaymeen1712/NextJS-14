@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   Input,
@@ -9,13 +11,19 @@ import {
 import Link from "next/link";
 import { colors, dashboardMenuItems } from "@/utils";
 import Logo from "@/components/logo";
+import { usePathname } from "next/navigation";
 
-const Header = async () => {
-  const menuItems = dashboardMenuItems.map((item, index) => (
-    <NavbarItem key={index}>
+const Header = () => {
+  const pathname = usePathname();
+  const selectedMenuItem = pathname.split("/")[1];
+
+  const menuItems = dashboardMenuItems.map((item) => (
+    <NavbarItem key={item.key}>
       <Link
         href={item.link}
-        className={`text-white hover:${colors.primary.text} duration-200`}
+        className={`hover:${colors.primary.text} ${
+          selectedMenuItem === item.key ? colors.primary.text : "text-white"
+        }`}
       >
         {item.name.toUpperCase()}
       </Link>
