@@ -36,7 +36,7 @@ const CarouselDetails = ({
       <div className="text-white mb-6">
         <Rating stop={parseInt(rating)} />
       </div>
-      <div className="text-white mb-8 line-clamp-3">{description}</div>
+      <div className="text-white mb-8 line-clamp-1">{description}</div>
       <Button
         className={`w-[12rem] px-8 py-7 rounded-full justify-center items-center ${colors.primary.background} bg-opacity-30 hover:cursor-pointer hover:scale-110 hover:bg-opacity-100 group`}
         disableRipple

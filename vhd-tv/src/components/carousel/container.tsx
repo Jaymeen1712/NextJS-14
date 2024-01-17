@@ -3,7 +3,7 @@ import Carousel from "./carousel";
 
 const CarouselContainer = () => {
   return (
-    <div className="my-8 items-center m-12">
+    <div className="my-8 items-center mx-16">
       <Carousel />
     </div>
   );
