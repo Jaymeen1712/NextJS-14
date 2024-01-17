@@ -1,5 +1,6 @@
 import React from "react";
 import MovieListHeader from "./header";
+import MovieListBody from "./body";
 
 interface MovieListContainerProps {
   title: string;
@@ -14,6 +15,9 @@ const MovieListContainer = ({
   return (
     <div className="mx-16">
       <MovieListHeader title={title} headerRight={headerRight} />
+      <div className="my-6">
+        <MovieListBody />
+      </div>
     </div>
   );
 };

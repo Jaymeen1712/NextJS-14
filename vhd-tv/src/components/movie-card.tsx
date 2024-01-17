@@ -20,10 +20,13 @@ const MovieCard = () => {
   return (
     <Card
       radius="none"
-      className="border-none w-[220px] h-[330px] hover:cursor-pointer group relative"
+      className="border-none lg:min-w-[216px] lg:min-h-[320px] 3xl:min-w-[227px] 3xl:min-h-[337px] group relative"
       shadow="md"
+      isPressable
+      disableRipple
+      disableAnimation
     >
-      <CardHeader className="absolute top-3 left-3">
+      <CardHeader className="absolute top-1 left-2">
         <h1 className="text-white font-bold drop-shadow-xl text-xl">HD</h1>
       </CardHeader>
       <CardBody className="p-0 overflow-hidden">
@@ -47,7 +50,7 @@ const MovieCard = () => {
               </Chip>
             ))}
           </div>
-          <h1 className="text-white font-bold">Lift</h1>
+          <h1 className="text-white font-bold text-left">Lift</h1>
         </div>
       </CardFooter>
     </Card>
