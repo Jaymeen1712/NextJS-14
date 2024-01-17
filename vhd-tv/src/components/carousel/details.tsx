@@ -2,6 +2,7 @@ import { colors } from "@/utils";
 import { Button, Chip } from "@nextui-org/react";
 import React from "react";
 import { FaPlay } from "react-icons/fa";
+import Rating from "../rating";
 
 interface CarouselDetailsProps {
   chips?: string[];
@@ -29,10 +30,12 @@ const CarouselDetails = ({
           </Chip>
         ))}
       </div>
-      <h1 className="text-white font-bold tracking-wide text-3xl mb-4">
+      <h1 className="text-white font-bold tracking-wide text-4xl mb-6">
         {title}
       </h1>
-      <div className="text-white mb-6">{rating}</div>
+      <div className="text-white mb-6">
+        <Rating stop={parseInt(rating)} />
+      </div>
       <div className="text-white mb-8 line-clamp-3">{description}</div>
       <Button
         className={`w-[12rem] px-8 py-7 rounded-full justify-center items-center ${colors.primary.background} bg-opacity-30 hover:cursor-pointer hover:scale-110 hover:bg-opacity-100 group`}
