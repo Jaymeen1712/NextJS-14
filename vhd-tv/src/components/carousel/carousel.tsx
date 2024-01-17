@@ -7,7 +7,6 @@ import img2 from "@/images/marvels-spider-man-miles-morales-photo-mode-dark-back
 import img3 from "@/images/wallhaven-01vpev.jpg";
 import img4 from "@/images/wallhaven-1kvqr1.jpg";
 import CarouselImage from "./image";
-import { Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -18,11 +17,9 @@ import { PaginationOptions } from "swiper/types";
 import CarouselPaginationButtons from "./controls/pagination-buttons";
 
 import "./controls/pagination.css";
-import { Button } from "@nextui-org/react";
-import Link from "next/link";
 
 const pagination: PaginationOptions = {
-  clickable: true,
+  // clickable: true,
 };
 
 const chips = ["HD", "Movie", "2023"];
@@ -34,8 +31,8 @@ const Carousel = () => {
     <div className="grid grid-cols-12 items-center justify-center">
       <div className="col-span-11 my-16">
         <Swiper
-          pagination={pagination}
-          modules={[Pagination]}
+          // pagination={pagination}
+          // modules={[Pagination]}
           ref={swiperRef}
           effect="coverflow"
           coverflowEffect={{
