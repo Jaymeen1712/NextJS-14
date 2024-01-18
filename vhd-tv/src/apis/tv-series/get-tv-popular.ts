@@ -1,13 +1,13 @@
 "use server";
 
-import { API_ROUTES } from "@/utils/enum";
 import apiClient from "../api-client";
+import { API_ROUTES } from "@/utils/enum";
 
-const getTrendingAPI = async () => {
+const getTvPopularAPI = async () => {
   let errors = null;
   let response = null;
   try {
-    response = await apiClient.get(API_ROUTES.ALL_TRENDING);
+    response = await apiClient.get(API_ROUTES.TV_POPULAR);
     response = response.data;
     return { response, errors };
   } catch (error) {
@@ -15,4 +15,4 @@ const getTrendingAPI = async () => {
   }
 };
 
-export default getTrendingAPI;
+export default getTvPopularAPI;

@@ -1,3 +1,5 @@
+"use server";
+
 import apiClient from "../api-client";
 import { API_ROUTES } from "@/utils/enum";
 

@@ -10,17 +10,26 @@ import {
 import Image from "next/image";
 import React, { useContext } from "react";
 
-import img1 from "@/images/download.jpeg";
 import { DefaultContext } from "@/context";
+import { CommonCardType } from "@/types";
+import { TMDB_IMAGE_BASE_URL } from "@/utils";
 
 const chips = ["HD", "Movie", "2023"];
 
-const MovieCard = () => {
+interface MovieCardProps {
+  data: CommonCardType;
+}
+
+const MovieCard = ({ data }: MovieCardProps) => {
   const defaultContext = useContext(DefaultContext);
+  const aspectRatio = 16 / 9; 
+  const width = 216;
+  const height = Math.round(width / aspectRatio);
+  
   return (
     <Card
       radius="none"
-      className="border-none lg:min-w-[216px] lg:min-h-[320px] 3xl:min-w-[227px] 3xl:min-h-[337px] group relative"
+      className="border-none lg:w-[216px] lg:h-[320px] 3xl:w-[227px] 3xl:h-[337px] group relative"
       shadow="md"
       isPressable
       disableRipple
@@ -33,7 +42,9 @@ const MovieCard = () => {
         <Image
           alt="Woman listing to music"
           className="object-fill w-full h-full transform transition-transform group-hover:scale-110"
-          src={img1}
+          src={`${TMDB_IMAGE_BASE_URL}/original${data.poster_path}`}
+          width={width}
+          height={height}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black from-70%" />
       </CardBody>

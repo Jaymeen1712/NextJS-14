@@ -1,14 +1,16 @@
 const COMMON_API = {
-  TRENDING_ALL: "/trending/all/day",
+  ALL_TRENDING: "/trending/all/day",
 };
 
 const MOVIE_API = {
-  TRENDING_MOVIE: "/trending/movie/week",
+  MOVIE_TRENDING: "/trending/movie/week",
   MOVIE_IMAGES: "/movie/:movieId/images",
+  MOVIE_POPULAR: "/movie/popular"
 };
 
 const TV_API = {
-  TRENDING_TV: "/trending/tv/week",
+  TV_TRENDING: "/trending/tv/week",
+  TV_POPULAR: "/tv/popular"
 };
 
 export const API_ROUTES = {

@@ -1,15 +1,22 @@
 "use client";
 
 import MovieListContainer from "@/components/movie-list/container";
+import { CommonCardType } from "@/types";
 import { colors } from "@/utils";
 import { Button } from "@nextui-org/react";
 import React, { useState } from "react";
 
-const TrendingMovieList = () => {
+interface TrendingMovieListProps {
+  movieData: CommonCardType[] | null;
+  tvData: CommonCardType[] | null;
+}
+
+const TrendingMovieList = ({ movieData, tvData }: TrendingMovieListProps) => {
   const [currentTab, setCurrentTab] = useState("movies");
 
   return (
     <MovieListContainer
+      data={currentTab === "movies" ? movieData : tvData}
       title="Trending"
       headerRight={
         <div className="space-x-3">

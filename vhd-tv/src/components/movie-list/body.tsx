@@ -1,31 +1,20 @@
 import React from "react";
 import MovieCard from "../movie-card";
+import { CommonCardType } from "@/types";
 
-const MovieListBody = () => {
+interface MovieListBodyProps {
+  data: CommonCardType[] | null;
+}
+
+const MovieListBody = ({ data }: MovieListBodyProps) => {
+  const renderList = data?.map((subData) => {
+    return <MovieCard key={subData.id} data={subData} />;
+  });
+
   return (
     <div className="flex flex-wrap justify-start gap-1">
-    <MovieCard />
-    <MovieCard />
-    <MovieCard />
-    <MovieCard />
-    <MovieCard />
-    <MovieCard />
-    <MovieCard />
-    <MovieCard /> 
-    <MovieCard /> 
-    <MovieCard /> 
-    <MovieCard /> 
-    <MovieCard /> 
-    <MovieCard /> 
-    <MovieCard /> 
-    <MovieCard /> 
-    <MovieCard /> 
-    <MovieCard /> 
-    <MovieCard /> 
-    <MovieCard /> 
-    <MovieCard /> 
-  </div>
-  
+      <>{renderList}</>
+    </div>
   );
 };
 
