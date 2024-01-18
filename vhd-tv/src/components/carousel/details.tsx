@@ -30,10 +30,10 @@ const CarouselDetails = ({
           </Chip>
         ))}
       </div>
-      <h1 className="text-white font-bold tracking-wide text-4xl mb-6">
+      <h1 className="text-white font-bold tracking-wide text-4xl ">
         {title}
       </h1>
-      <div className="text-white mb-6">
+      <div className="text-white my-2">
         <Rating stop={parseInt(rating)} />
       </div>
       <div className="text-white mb-8 line-clamp-1">{description}</div>

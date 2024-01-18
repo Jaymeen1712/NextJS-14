@@ -27,3 +27,9 @@ export const colors = {
     background: "bg-cyan-300",
   },
 };
+
+export const TMDB_IMAGE_BASE_URL = "https://image.tmdb.org/t/p";
+
+export function capitalizeFirstLetter(inputString: string) {
+  return inputString.charAt(0).toUpperCase() + inputString.slice(1);
+}
