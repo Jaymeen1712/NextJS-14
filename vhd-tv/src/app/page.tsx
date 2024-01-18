@@ -1,7 +1,7 @@
 import DashboardContainer from "@/components/dashboard-container";
 import { register } from 'swiper/element/bundle';
 
-export default function Home() {
+export default async function Home() {
   register();
 
   return (
