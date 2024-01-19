@@ -2,12 +2,12 @@ import React from "react";
 import MovieCard from "../movie-card";
 import { CommonCardType } from "@/types";
 
-interface MovieListBodyProps {
-  data: CommonCardType[] | null;
+interface MovieListBodyScrollProps {
+  data: CommonCardType[];
 }
 
-const MovieListBody = ({ data }: MovieListBodyProps) => {
-  const renderList = data?.map((subData) => {
+const MovieListBodyScroll = ({ data }: MovieListBodyScrollProps) => {
+  const renderList = data.map((subData) => {
     return <MovieCard key={subData.id} data={subData} />;
   });
 
@@ -18,4 +18,4 @@ const MovieListBody = ({ data }: MovieListBodyProps) => {
   );
 };
 
-export default MovieListBody;
+export default MovieListBodyScroll;

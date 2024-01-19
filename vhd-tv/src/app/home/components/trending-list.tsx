@@ -11,7 +11,7 @@ interface TrendingMovieListProps {
   tvData: CommonCardType[] | null;
 }
 
-const TrendingMovieList = ({ movieData, tvData }: TrendingMovieListProps) => {
+const TrendingList = ({ movieData, tvData }: TrendingMovieListProps) => {
   const [currentTab, setCurrentTab] = useState("movies");
 
   return (
@@ -19,7 +19,7 @@ const TrendingMovieList = ({ movieData, tvData }: TrendingMovieListProps) => {
       data={currentTab === "movies" ? movieData : tvData}
       title="Trending"
       headerRight={
-        <div className="space-x-3">
+        <div className="space-x-3 ml-4">
           <Button
             onClick={() => {
               setCurrentTab("movies");
@@ -56,4 +56,4 @@ const TrendingMovieList = ({ movieData, tvData }: TrendingMovieListProps) => {
   );
 };
 
-export default TrendingMovieList;
+export default TrendingList;

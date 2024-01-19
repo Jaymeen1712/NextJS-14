@@ -8,6 +8,7 @@ const MOVIE_API = {
   MOVIE_TRENDING: `/trending/movie/${TIME_WINDOW}`,
   MOVIE_IMAGES: "/movie/:movieId/images",
   MOVIE_POPULAR: "/movie/popular",
+  MOVIE_LATEST:"/movie/now_playing"
 };
 
 const TV_API = {

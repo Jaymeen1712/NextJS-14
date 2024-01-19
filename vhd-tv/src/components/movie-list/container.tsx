@@ -1,24 +1,32 @@
 import React from "react";
 import MovieListHeader from "./header";
-import MovieListBody from "./body";
+import MovieListBodyScroll from "./body-scroll";
 import { CommonCardType } from "@/types";
+import MovieListBodyCarousel from "./body-carousel";
 
 interface MovieListContainerProps {
   title: string;
-  headerRight?: React.ReactNode;
   data: CommonCardType[] | null;
+  headerRight?: React.ReactNode;
+  type?: "scroll" | "carousel";
 }
 
 const MovieListContainer = ({
   title,
   headerRight,
   data,
+  type = "scroll",
 }: MovieListContainerProps) => {
   return (
-    <div className="mx-16">
+    <div className="mx-16 my-24">
       <MovieListHeader title={title} headerRight={headerRight} />
       <div className="my-6 min-h-1300">
-        {data && <MovieListBody data={data} />}
+        {data &&
+          (type === "scroll" ? (
+            <MovieListBodyScroll data={data} />
+          ) : (
+            <MovieListBodyCarousel data={data}/>
+          ))}
       </div>
     </div>
   );

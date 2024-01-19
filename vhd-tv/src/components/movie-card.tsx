@@ -14,8 +14,6 @@ import { DefaultContext } from "@/context";
 import { CommonCardType } from "@/types";
 import { TMDB_IMAGE_BASE_URL } from "@/utils";
 
-const chips = ["HD", "Movie", "2023"];
-
 interface MovieCardProps {
   data: CommonCardType;
 }
