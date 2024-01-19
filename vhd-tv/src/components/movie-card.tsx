@@ -22,10 +22,21 @@ interface MovieCardProps {
 
 const MovieCard = ({ data }: MovieCardProps) => {
   const defaultContext = useContext(DefaultContext);
-  const aspectRatio = 16 / 9; 
+  const aspectRatio = 16 / 9;
   const width = 216;
   const height = Math.round(width / aspectRatio);
-  
+
+  let chips: string[] = ["HD"];
+  if (data.media_type) {
+    chips.push(
+      data.media_type.toLowerCase() === "movie" ? "Movie" : "TV Series"
+    );
+  }
+
+  data.release_date && chips.push(data.release_date?.split("-")[0]);
+
+  const title = data.title || data.name || "Title";
+
   return (
     <Card
       radius="none"
@@ -46,7 +57,7 @@ const MovieCard = ({ data }: MovieCardProps) => {
           width={width}
           height={height}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black from-70%" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-neutral-800 from-70%" />
       </CardBody>
       <CardFooter className="absolute justify-between bottom-3 left-3 group-hover:backdrop-blur-sm group-hover:bg-white/10 w-[89%] rounded-lg py-2 group-hover:-translate-y-1 transition ease-in-out delay-20">
         <div className="grid-rows-2">
@@ -61,7 +72,7 @@ const MovieCard = ({ data }: MovieCardProps) => {
               </Chip>
             ))}
           </div>
-          <h1 className="text-white font-bold text-left">Lift</h1>
+          <h1 className="text-white font-bold text-left">{title}</h1>
         </div>
       </CardFooter>
     </Card>

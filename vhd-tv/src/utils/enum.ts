@@ -1,16 +1,18 @@
+const TIME_WINDOW = "week";
+
 const COMMON_API = {
-  ALL_TRENDING: "/trending/all/day",
+  ALL_TRENDING: `/trending/all/${TIME_WINDOW}`,
 };
 
 const MOVIE_API = {
-  MOVIE_TRENDING: "/trending/movie/week",
+  MOVIE_TRENDING: `/trending/movie/${TIME_WINDOW}`,
   MOVIE_IMAGES: "/movie/:movieId/images",
-  MOVIE_POPULAR: "/movie/popular"
+  MOVIE_POPULAR: "/movie/popular",
 };
 
 const TV_API = {
-  TV_TRENDING: "/trending/tv/week",
-  TV_POPULAR: "/tv/popular"
+  TV_TRENDING: `/trending/tv/${TIME_WINDOW}`,
+  TV_POPULAR: "/tv/popular",
 };
 
 export const API_ROUTES = {
