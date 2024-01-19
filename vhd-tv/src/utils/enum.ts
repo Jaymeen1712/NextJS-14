@@ -14,6 +14,7 @@ const MOVIE_API = {
 const TV_API = {
   TV_TRENDING: `/trending/tv/${TIME_WINDOW}`,
   TV_POPULAR: "/tv/popular",
+  TV_LATEST:"/tv/on_the_air"
 };
 
 export const API_ROUTES = {
