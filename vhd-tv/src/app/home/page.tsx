@@ -6,6 +6,8 @@ import { getMoviesLatestAPI, getMoviesTrendingAPI } from "@/apis/movie";
 import { getTvLatestAPI, getTvTrendingAPI } from "@/apis/tv-series";
 import LatestMoviesList from "./components/latest-movies-list";
 import LatestTvList from "./components/latest-tv-list";
+import Image from "next/image";
+import { colors } from "@/utils";
 
 const HomePage = async () => {
   const { response: trending, errors: trendingErrors } = await getTrending();
@@ -19,6 +21,19 @@ const HomePage = async () => {
 
   return (
     <div className="bg-neutral-900 flex-1">
+      <div
+        className={
+          " bg-cyan-300 absolute w-full h-full object-cover filter  opacity-30"
+        }
+      >
+        <div className="opacity-20">
+          <Image
+            src="https://image.tmdb.org/t/p/original/4MCKNAc6AbWjEsM2h9Xc29owo4z.jpg"
+            alt="Your Image"
+            fill
+          />
+        </div>
+      </div>
       <div className="min-h-[550px]">
         {!trendingErrors && (
           <CarouselContainer
