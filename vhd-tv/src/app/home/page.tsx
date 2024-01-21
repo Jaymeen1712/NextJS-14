@@ -1,5 +1,4 @@
 import getTrending from "@/apis/common/get-trending";
-import CarouselContainer from "@/components/carousel/container";
 import React from "react";
 import TrendingList from "./components/trending-list";
 import { getMoviesLatestAPI, getMoviesTrendingAPI } from "@/apis/movie";
@@ -29,28 +28,24 @@ const HomePage = async () => {
           tvData={trendingTv.results}
         />
       )}
-      <div>
-        {!latestMoviesErrors && (
-          <LatestMoviesList
-            data={
-              latestMovies.results.length > 20
-                ? latestMovies.results.slice(20)
-                : latestMovies.results
-            }
-          />
-        )}
-      </div>
-      <div>
-        {!latestTvErrors && (
-          <LatestTvList
-            data={
-              latestTv.results.length > 20
-                ? latestTv.results.slice(20)
-                : latestTv.results
-            }
-          />
-        )}
-      </div>
+      {!latestMoviesErrors && (
+        <LatestMoviesList
+          data={
+            latestMovies.results.length > 20
+              ? latestMovies.results.slice(0, 20)
+              : latestMovies.results
+          }
+        />
+      )}
+      {!latestTvErrors && (
+        <LatestTvList
+          data={
+            latestTv.results.length > 20
+              ? latestTv.results.slice(0, 20)
+              : latestTv.results
+          }
+        />
+      )}
     </div>
   );
 };

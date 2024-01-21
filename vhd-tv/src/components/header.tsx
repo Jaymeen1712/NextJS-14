@@ -31,14 +31,19 @@ const Header = () => {
   ));
 
   return (
-    <Navbar className="shadow mb-6 bg-neutral-950 m-0" height={"90px"}>
+    <Navbar
+      className={`shadow mb-6 bg-neutral-950 m-0 ${
+        selectedMenuItem.toLowerCase() === "home" && "bg-0 absolute w-full top-0 left-0 right-0"
+      }`}
+      height={"90px"}
+    >
       <NavbarBrand>
         <Link href="/">
           <Logo />
         </Link>
       </NavbarBrand>
 
-      <NavbarContent justify="end">
+      <NavbarContent justify="end" className="">
         <NavbarItem>
           <Input
             size="sm"

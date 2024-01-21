@@ -3,7 +3,7 @@
 import CarouselContainer from "@/components/carousel/container";
 import { CommonCardType } from "@/types";
 import React, { useEffect, useState } from "react";
-import DashboardImageContainer from "./dashboard-image-container";
+import GradientImageContainer from "@/components/gradient-image-container";
 
 const DashboardCarousel = ({ data }: { data: CommonCardType[] }) => {
   const [dashboardImage, setDashboardImage] = useState<string>("");
@@ -16,10 +16,10 @@ const DashboardCarousel = ({ data }: { data: CommonCardType[] }) => {
 
   return (
     <>
-      <DashboardImageContainer path={dashboardImage} />
-      <div className="min-h-[550px]">
+      <GradientImageContainer path={dashboardImage} />
+      <div className="min-h-[550px] my-32">
         <CarouselContainer
-          commonDetails={data.length < 10 ? data.slice(10) : data}
+          commonDetails={data.length > 10 ? data.slice(0, 10) : data}
           setDashboardImage={setDashboardImage}
         />
       </div>

@@ -10,7 +10,7 @@ const CarouselContainer = ({
   setDashboardImage: React.Dispatch<React.SetStateAction<string>>;
 }) => {
   return (
-    <div className="my-8 items-center mx-16">
+    <div className="items-center mx-16">
       <Carousel
         commonDetails={commonDetails}
         setDashboardImage={setDashboardImage}
