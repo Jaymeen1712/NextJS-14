@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperProps, SwiperRef, SwiperSlide } from "swiper/react";
 import CarouselImage from "./image";
 
 import "swiper/css";
@@ -15,8 +15,32 @@ import "./controls/pagination.css";
 import { CommonCardType } from "@/types";
 import { TMDB_IMAGE_BASE_URL, capitalizeFirstLetter } from "@/utils";
 
-const Carousel = ({ commonDetails }: { commonDetails: CommonCardType[] }) => {
+const Carousel = ({
+  commonDetails,
+  setDashboardImage,
+}: {
+  commonDetails: CommonCardType[];
+  setDashboardImage: React.Dispatch<React.SetStateAction<string>>;
+}) => {
   const swiperRef = useRef<SwiperRef>(null);
+
+  const handleSlideChange: SwiperProps["onActiveIndexChange"] = (swiper) => {
+    if (swiperRef) {
+      const activeSlide = swiperRef.current?.swiper.slides[swiper.activeIndex];
+
+      const imageElement = activeSlide?.querySelector("img");
+
+      const encodedUrl = imageElement?.getAttribute("src");
+
+      const decodedUrl = decodeURIComponent(encodedUrl || "");
+
+      const filename =
+        decodedUrl.substring(decodedUrl.lastIndexOf("/") + 1).split(".")[0] +
+        ".jpg";
+
+      setDashboardImage(filename);
+    }
+  };
 
   return (
     <div className="grid grid-cols-12 items-center justify-center">
@@ -33,6 +57,7 @@ const Carousel = ({ commonDetails }: { commonDetails: CommonCardType[] }) => {
             modifier: 1,
             slideShadows: false,
           }}
+          onActiveIndexChange={handleSlideChange}
         >
           <>
             {commonDetails.map((detail) => {

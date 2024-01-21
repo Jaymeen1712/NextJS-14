@@ -4,12 +4,17 @@ import { CommonCardType } from "@/types";
 
 const CarouselContainer = ({
   commonDetails,
+  setDashboardImage,
 }: {
-  commonDetails: CommonCardType[] | null;
+  commonDetails: CommonCardType[];
+  setDashboardImage: React.Dispatch<React.SetStateAction<string>>;
 }) => {
   return (
     <div className="my-8 items-center mx-16">
-      {commonDetails && <Carousel commonDetails={commonDetails}/>}
+      <Carousel
+        commonDetails={commonDetails}
+        setDashboardImage={setDashboardImage}
+      />
     </div>
   );
 };
