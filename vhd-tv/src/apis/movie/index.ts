@@ -1,3 +1,4 @@
+import getMovieCreditsAPI from "./get-movie-credits";
 import getMovieImagesAPI from "./get-movie-images";
 import getMovieSingleAPI from "./get-movie-single";
 import getMoviesLatestAPI from "./get-movies-latest";
@@ -10,4 +11,5 @@ export {
   getMoviesTrendingAPI,
   getMoviesLatestAPI,
   getMovieSingleAPI,
+  getMovieCreditsAPI,
 };

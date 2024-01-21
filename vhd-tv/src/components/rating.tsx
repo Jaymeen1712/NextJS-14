@@ -11,12 +11,12 @@ const Rating = ({ stop = 0 }: RatingProps) => {
       {Array(Math.round(stop / 2))
         .fill(0)
         .map((_, index) => (
-          <FaStar key={index} color="white" size={20} />
+          <FaStar key={index} size={20} className="text-white" />
         ))}
       {Array(5 - Math.round(stop / 2))
         .fill(0)
         .map((_, index) => (
-          <FaRegStar key={index} color="white" size={20} />
+          <FaRegStar key={index} size={20} className="text-white/50"/>
         ))}
     </div>
   );

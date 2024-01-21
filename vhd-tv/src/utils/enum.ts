@@ -10,6 +10,7 @@ const MOVIE_API = {
   MOVIE_POPULAR: "/movie/popular",
   MOVIE_LATEST: "/movie/now_playing",
   MOVIE_SINGLE: "/movie",
+  MOVIE_CREDITS: "/movie/:movieId/credits",
 };
 
 const TV_API = {
