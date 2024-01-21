@@ -86,7 +86,7 @@ const Carousel = ({
                       detailId={detail.id}
                       chips={chips}
                       title={capitalizeFirstLetter(title)}
-                      rating={Math.round(detail.vote_average / 2).toString()}
+                      rating={detail.vote_average}
                       description={detail.overview}
                     />
                   </div>

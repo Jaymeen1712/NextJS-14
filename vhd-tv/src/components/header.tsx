@@ -9,7 +9,7 @@ import {
   NavbarItem,
 } from "@nextui-org/react";
 import Link from "next/link";
-import { colors, dashboardMenuItems } from "@/utils";
+import { HEADER_TRANSPARENT, dashboardMenuItems } from "@/utils";
 import Logo from "@/components/logo";
 import { usePathname } from "next/navigation";
 
@@ -32,8 +32,9 @@ const Header = () => {
 
   return (
     <Navbar
-      className={`shadow mb-6 bg-neutral-950 m-0 ${
-        selectedMenuItem.toLowerCase() === "home" && "bg-0 absolute w-full top-0 left-0 right-0"
+      className={`m-0 bg-neutral-950 shadow ${
+        HEADER_TRANSPARENT.includes(selectedMenuItem.toLowerCase()) &&
+        "bg-0 absolute left-0 right-0 top-0 w-full"
       }`}
       height={"90px"}
     >
@@ -61,7 +62,7 @@ const Header = () => {
         </NavbarItem>
 
         {/* Menu Items */}
-        <div className="space-x-10 flex flex-row mx-10">{menuItems}</div>
+        <div className="mx-10 flex flex-row space-x-10">{menuItems}</div>
       </NavbarContent>
     </Navbar>
   );

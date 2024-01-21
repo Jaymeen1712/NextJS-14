@@ -8,13 +8,14 @@ const MOVIE_API = {
   MOVIE_TRENDING: `/trending/movie/${TIME_WINDOW}`,
   MOVIE_IMAGES: "/movie/:movieId/images",
   MOVIE_POPULAR: "/movie/popular",
-  MOVIE_LATEST:"/movie/now_playing"
+  MOVIE_LATEST: "/movie/now_playing",
+  MOVIE_SINGLE: "/movie",
 };
 
 const TV_API = {
   TV_TRENDING: `/trending/tv/${TIME_WINDOW}`,
   TV_POPULAR: "/tv/popular",
-  TV_LATEST:"/tv/on_the_air"
+  TV_LATEST: "/tv/on_the_air",
 };
 
 export const API_ROUTES = {

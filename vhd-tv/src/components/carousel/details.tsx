@@ -7,7 +7,7 @@ import Link from "next/link";
 interface CarouselDetailsProps {
   chips?: string[];
   title: string;
-  rating: string;
+  rating: number;
   description: string;
   detailId: number;
 }
@@ -40,7 +40,7 @@ const CarouselDetails = ({
         <Link href={`/movie/${detailId}`}>{title}</Link>
       </h1>
       <div className="my-2 text-white">
-        <Rating stop={parseInt(rating)} />
+        <Rating stop={rating} />
       </div>
       <div className="mb-8 line-clamp-1 text-white">{description}</div>
       <Button
