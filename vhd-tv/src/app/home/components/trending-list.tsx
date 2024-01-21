@@ -2,7 +2,6 @@
 
 import MovieListContainer from "@/components/movie-list/container";
 import { CommonCardType } from "@/types";
-import { colors } from "@/utils";
 import { Button } from "@nextui-org/react";
 import React, { useState } from "react";
 
@@ -26,8 +25,8 @@ const TrendingList = ({ movieData, tvData }: TrendingMovieListProps) => {
             }}
             className={`px-6 text-base ${
               currentTab === "movies"
-                ? `${colors.primary.background} text-black`
-                : `bg-transparent text-white hover:${colors.primary.text} border-1 `
+                ? `bg-primary text-black`
+                : `bg-transparent text-white hover:text-primary border-1 `
             }`}
             radius="full"
             disableRipple
@@ -41,8 +40,8 @@ const TrendingList = ({ movieData, tvData }: TrendingMovieListProps) => {
             }}
             className={`px-6 text-base ${
               currentTab === "tvSeries"
-                ? `${colors.primary.background} text-black`
-                : `bg-transparent text-white hover:${colors.primary.text} border-1 `
+                ? "bg-primary text-black"
+                : `bg-transparent text-white hover:text-primary border-1 `
             }`}
             radius="full"
             disableRipple

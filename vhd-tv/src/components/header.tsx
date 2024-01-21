@@ -21,8 +21,8 @@ const Header = () => {
     <NavbarItem key={item.key}>
       <Link
         href={item.link}
-        className={`hover:${colors.primary.text} ${
-          selectedMenuItem === item.key ? colors.primary.text : "text-white"
+        className={`hover:text-primary ${
+          selectedMenuItem === item.key ? "text-primary" : "text-white"
         }`}
       >
         {item.name.toUpperCase()}

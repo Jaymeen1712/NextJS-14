@@ -83,6 +83,7 @@ const Carousel = ({
                       alt="image"
                     />
                     <CarouselDetails
+                      detailId={detail.id}
                       chips={chips}
                       title={capitalizeFirstLetter(title)}
                       rating={Math.round(detail.vote_average / 2).toString()}

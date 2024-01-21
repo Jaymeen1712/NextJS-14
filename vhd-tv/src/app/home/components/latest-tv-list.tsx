@@ -1,6 +1,5 @@
 import MovieListContainer from "@/components/movie-list/container";
 import { CommonCardType } from "@/types";
-import { colors } from "@/utils";
 import React from "react";
 import { FaAngleRight } from "react-icons/fa";
 
@@ -18,7 +17,7 @@ const LatestTvList = ({ data }: LatestTvListProps) => {
           // onClick={handleClick}
         >
           <FaAngleRight
-            className={`text-white group-hover:${colors.primary.text}`}
+            className={`text-white group-hover:text-primary`}
             size={22}
           />
         </button>

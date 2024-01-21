@@ -8,7 +8,7 @@ import {
   Chip,
 } from "@nextui-org/react";
 import Image from "next/image";
-import React, { useContext } from "react";
+import React from "react";
 
 import { DefaultContext } from "@/context";
 import { CommonCardType } from "@/types";
@@ -19,7 +19,6 @@ interface MovieCardProps {
 }
 
 const MovieCard = ({ data }: MovieCardProps) => {
-  const defaultContext = useContext(DefaultContext);
   const aspectRatio = 16 / 9;
   const width = 216;
   const height = Math.round(width / aspectRatio);
@@ -27,7 +26,7 @@ const MovieCard = ({ data }: MovieCardProps) => {
   let chips: string[] = ["HD"];
   if (data.media_type) {
     chips.push(
-      data.media_type.toLowerCase() === "movie" ? "Movie" : "TV Series"
+      data.media_type.toLowerCase() === "movie" ? "Movie" : "TV Series",
     );
   }
 
@@ -38,39 +37,39 @@ const MovieCard = ({ data }: MovieCardProps) => {
   return (
     <Card
       radius="none"
-      className="border-none lg:w-[216px] lg:h-[320px] 3xl:w-[227px] 3xl:h-[337px] group relative"
+      className="3xl:w-[227px] 3xl:h-[337px] group relative border-none lg:h-[320px] lg:w-[216px]"
       shadow="md"
       isPressable
       disableRipple
       disableAnimation
     >
-      <CardHeader className="absolute top-1 left-2">
-        <h1 className="text-white font-bold drop-shadow-xl text-xl">HD</h1>
+      <CardHeader className="absolute left-2 top-1">
+        <h1 className="text-xl font-bold text-white drop-shadow-xl">HD</h1>
       </CardHeader>
-      <CardBody className="p-0 overflow-hidden">
+      <CardBody className="overflow-hidden p-0">
         <Image
           alt="Woman listing to music"
-          className="object-fill w-full h-full transform transition-transform group-hover:scale-110"
+          className="h-full w-full transform object-fill transition-transform group-hover:scale-110"
           src={`${TMDB_IMAGE_BASE_URL}/original${data.poster_path}`}
           width={width}
           height={height}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-neutral-800 from-70%" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent from-70% to-neutral-800" />
       </CardBody>
-      <CardFooter className="absolute justify-between bottom-3 left-3 group-hover:backdrop-blur-sm group-hover:bg-white/10 w-[89%] rounded-lg py-2 group-hover:-translate-y-1 transition ease-in-out delay-20">
+      <CardFooter className="delay-20 absolute bottom-3 left-3 w-[89%] justify-between rounded-lg py-2 transition ease-in-out group-hover:-translate-y-1 group-hover:bg-white/10 group-hover:backdrop-blur-sm">
         <div className="grid-rows-2">
-          <div className="flex justify-start items-center mb-2 space-x-2">
+          <div className="mb-2 flex items-center justify-start space-x-2">
             {chips?.map((chip) => (
               <Chip
                 key={chip}
-                className={`${defaultContext?.colors.primary.text} ${defaultContext?.colors.primary.background} bg-opacity-30 rounded-md p-0`}
+                className={`rounded-md bg-primary bg-opacity-30 p-0 text-primary`}
                 size="sm"
               >
                 {chip}
               </Chip>
             ))}
           </div>
-          <h1 className="text-white font-bold text-left">{title}</h1>
+          <h1 className="text-left font-bold text-white">{title}</h1>
         </div>
       </CardFooter>
     </Card>
