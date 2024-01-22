@@ -8,15 +8,20 @@ import { FaAngleLeft, FaPlay } from "react-icons/fa";
 interface MovieShowContainerProps {
   data: SingleMediaType;
   credits: CreditType[];
+  mediaType: string;
 }
 
-const MovieDetailsContainer = ({ data, credits }: MovieShowContainerProps) => {
+const MediaDetailsContainer = ({
+  data,
+  credits,
+  mediaType,
+}: MovieShowContainerProps) => {
   return (
     <div className="h-full w-full p-12">
       <Button className={"mb-6 bg-white"} radius="full">
         <Link href={"/home"} className="flex items-center justify-center">
           <FaAngleLeft className="mr-2" />
-          <span className="text-base">Movies</span>
+          <span className="text-base">{mediaType}</span>
         </Link>
       </Button>
 
@@ -103,7 +108,9 @@ const MovieDetailsContainer = ({ data, credits }: MovieShowContainerProps) => {
         {/* Release */}
         <div className="grid grid-cols-6">
           <span className="col-span-1 font-bold text-white">Release</span>
-          <span className="col-span-5 text-white">{data.release_date}</span>
+          <span className="col-span-5 text-white">
+            {!data.seasons ? data.release_date : data.first_air_date}
+          </span>
         </div>
 
         {/* Production */}
@@ -120,4 +127,4 @@ const MovieDetailsContainer = ({ data, credits }: MovieShowContainerProps) => {
   );
 };
 
-export default MovieDetailsContainer;
+export default MediaDetailsContainer;

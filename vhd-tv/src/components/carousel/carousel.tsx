@@ -88,6 +88,7 @@ const Carousel = ({
                       title={capitalizeFirstLetter(title)}
                       rating={detail.vote_average}
                       description={detail.overview}
+                      type={detail.media_type}
                     />
                   </div>
                 </SwiperSlide>

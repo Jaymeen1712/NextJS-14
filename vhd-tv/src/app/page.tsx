@@ -1,5 +1,4 @@
 import DashboardContainer from "@/components/dashboard-container";
-import Footer from "@/components/footer";
 import { register } from 'swiper/element/bundle';
 
 export default async function Home() {

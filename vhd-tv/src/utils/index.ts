@@ -27,4 +27,4 @@ export function capitalizeFirstLetter(inputString: string) {
   return inputString.charAt(0).toUpperCase() + inputString.slice(1);
 }
 
-export const HEADER_TRANSPARENT = ["movie", "home"];
+export const HEADER_TRANSPARENT = ["movie", "home", "series"];

@@ -10,15 +10,17 @@ import {
 import Image from "next/image";
 import React from "react";
 
-import { DefaultContext } from "@/context";
 import { CommonCardType } from "@/types";
 import { TMDB_IMAGE_BASE_URL } from "@/utils";
+import { useRouter } from "next/navigation";
 
 interface MovieCardProps {
   data: CommonCardType;
 }
 
 const MovieCard = ({ data }: MovieCardProps) => {
+  const router = useRouter();
+
   const aspectRatio = 16 / 9;
   const width = 216;
   const height = Math.round(width / aspectRatio);
@@ -34,6 +36,12 @@ const MovieCard = ({ data }: MovieCardProps) => {
 
   const title = data.title || data.name || "Title";
 
+  const handleCardPress = () => {
+    data.media_type === "movie"
+      ? router.push(`/movie/${data.id}`)
+      : router.push(`/series/${data.id}`);
+  };
+
   return (
     <Card
       radius="none"
@@ -42,6 +50,7 @@ const MovieCard = ({ data }: MovieCardProps) => {
       isPressable
       disableRipple
       disableAnimation
+      onPress={handleCardPress}
     >
       <CardHeader className="absolute left-2 top-1">
         <h1 className="text-xl font-bold text-white drop-shadow-xl">HD</h1>

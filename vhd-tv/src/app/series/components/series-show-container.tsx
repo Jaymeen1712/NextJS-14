@@ -3,18 +3,18 @@ import { CreditType, SingleMediaType } from "@/types";
 import React from "react";
 import SingleMediaContainer from "@/components/single-media-container/container";
 
-interface MovieShowContainerProps {
+interface SeriesShowContainerProps {
   data: SingleMediaType | null;
   credits: CreditType[] | null;
 }
 
-const MovieShowContainer = ({ data, credits }: MovieShowContainerProps) => {
+const SeriesShowContainer = ({ data, credits }: SeriesShowContainerProps) => {
   return (
     <div>
       {data && <GradientImageContainer path={data.backdrop_path} />}
-      <SingleMediaContainer credits={credits} data={data} type="Movies"/>
+      <SingleMediaContainer credits={credits} data={data} type="TV Series" />
     </div>
   );
 };
 
-export default MovieShowContainer;
+export default SeriesShowContainer;

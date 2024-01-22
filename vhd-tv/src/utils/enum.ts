@@ -18,6 +18,9 @@ const TV_API = {
   TV_TRENDING: `/trending/tv/${TIME_WINDOW}`,
   TV_POPULAR: "/tv/popular",
   TV_LATEST: "/tv/on_the_air",
+  TV_SINGLE: "/tv",
+  TV_CREDITS: "/tv/:tvId/credits",
+  TV_SIMILAR: "/tv/:tvId/similar"
 };
 
 export const API_ROUTES = {
