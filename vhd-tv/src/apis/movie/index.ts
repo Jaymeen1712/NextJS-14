@@ -1,6 +1,7 @@
 import getMovieCreditsAPI from "./get-movie-credits";
 import getMovieImagesAPI from "./get-movie-images";
 import getMovieSingleAPI from "./get-movie-single";
+import getMovieVideosAPI from "../common/get-media-videos";
 import getMoviesLatestAPI from "./get-movies-latest";
 import getMoviesPopularAPI from "./get-movies-popular";
 import getMoviesSimilarAPI from "./get-movies-similar";
@@ -16,4 +17,5 @@ export {
   getMovieCreditsAPI,
   getMoviesSimilarAPI,
   getMoviesTopRatedAPI,
+  getMovieVideosAPI,
 };

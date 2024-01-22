@@ -19,7 +19,10 @@ const MediaDetailsContainer = ({
   return (
     <div className="h-full w-full p-12">
       <Button className={"mb-6 bg-white"} radius="full">
-        <Link href={"/home"} className="flex items-center justify-center">
+        <Link
+          href={!data.seasons ? "/movies" : "/tv-series"}
+          className="flex items-center justify-center"
+        >
           <FaAngleLeft className="mr-2" />
           <span className="text-base">{mediaType}</span>
         </Link>
@@ -37,7 +40,10 @@ const MediaDetailsContainer = ({
           disableRipple
           radius="sm"
         >
-          <Link href={"/"} className="flex items-center justify-center">
+          <Link
+            href={`/watch/${!data.seasons ? "/movie" : "/tv"}/${data.id}`}
+            className="flex items-center justify-center"
+          >
             <FaPlay className={"mr-4"} size={15} />
             <span className="text-base">Watch now</span>
           </Link>

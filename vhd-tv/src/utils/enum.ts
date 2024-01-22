@@ -2,6 +2,8 @@ const TIME_WINDOW = "week";
 
 const COMMON_API = {
   ALL_TRENDING: `/trending/all/${TIME_WINDOW}`,
+  MEDIA_VIDEOS: "/:media/:mediaId/videos",
+  MEDIA_DETAILS: "/:media/:mediaId",
 };
 
 const MOVIE_API = {
@@ -13,6 +15,7 @@ const MOVIE_API = {
   MOVIE_CREDITS: "/movie/:movieId/credits",
   MOVIE_SIMILAR: "/movie/:movieId/similar",
   MOVIE_TOP_RATED: "/movie/top_rated",
+  MOVIE_VIDEOS: "/movie/:movieId/videos",
 };
 
 const TV_API = {

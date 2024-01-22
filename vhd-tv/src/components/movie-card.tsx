@@ -37,7 +37,7 @@ const MovieCard = ({ data }: MovieCardProps) => {
   const title = data.title || data.name || "Title";
 
   const handleCardPress = () => {
-    data.media_type === "tv" && data.first_air_date
+    data.media_type === "tv" || data.first_air_date
       ? router.push(`/series/${data.id}`)
       : router.push(`/movie/${data.id}`);
   };
