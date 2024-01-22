@@ -3,6 +3,7 @@ import getMovieImagesAPI from "./get-movie-images";
 import getMovieSingleAPI from "./get-movie-single";
 import getMoviesLatestAPI from "./get-movies-latest";
 import getMoviesPopularAPI from "./get-movies-popular";
+import getMoviesSimilarAPI from "./get-movies-similar";
 import getMoviesTrendingAPI from "./get-movies-trending";
 
 export {
@@ -12,4 +13,5 @@ export {
   getMoviesLatestAPI,
   getMovieSingleAPI,
   getMovieCreditsAPI,
+  getMoviesSimilarAPI,
 };

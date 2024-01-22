@@ -15,7 +15,7 @@ const MovieShowContainer = ({ data, credits }: MovieShowContainerProps) => {
     <div>
       {data && <GradientImageContainer path={data.backdrop_path} />}
       <div className="w-full px-60">
-        <div className="relative z-30 mx-auto pt-48">
+        <div className="relative z-30 mx-auto pt-48 pb-36">
           <div className="flex justify-center">
             <div className="flex justify-center">
               <div className="relative h-full w-[10%] bg-transparent pt-2 backdrop-blur-xl backdrop-brightness-150">

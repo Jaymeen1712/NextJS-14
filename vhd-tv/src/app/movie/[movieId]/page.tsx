@@ -1,6 +1,7 @@
-import { getMovieCreditsAPI, getMovieSingleAPI } from "@/apis/movie";
+import { getMovieCreditsAPI, getMovieSingleAPI, getMoviesSimilarAPI } from "@/apis/movie";
 import React from "react";
 import MovieShowContainer from "../components/movie-show-container";
+import SimilarContainer from "../components/similar-container";
 
 interface MoviePageProps {
   params: {
@@ -15,6 +16,8 @@ const MoviePage = async ({ params }: MoviePageProps) => {
     response: movieSingleCreditsResponse,
     errors: movieSingleCreditsErrors,
   } = await getMovieCreditsAPI(params.movieId);
+  const { response: moviesSimilarResponse, errors: moviesSimilarErrors } =
+  await getMoviesSimilarAPI(params.movieId);
 
   return (
     <div className="flex-1 bg-neutral-900">
@@ -23,6 +26,9 @@ const MoviePage = async ({ params }: MoviePageProps) => {
           data={movieSingleResponse}
           credits={movieSingleCreditsResponse.cast}
         />
+      )}
+      {!moviesSimilarErrors && (
+        <SimilarContainer data={moviesSimilarResponse.results} />
       )}
     </div>
   );

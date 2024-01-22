@@ -11,6 +11,7 @@ const MOVIE_API = {
   MOVIE_LATEST: "/movie/now_playing",
   MOVIE_SINGLE: "/movie",
   MOVIE_CREDITS: "/movie/:movieId/credits",
+  MOVIE_SIMILAR: "/movie/:movieId/similar"
 };
 
 const TV_API = {
