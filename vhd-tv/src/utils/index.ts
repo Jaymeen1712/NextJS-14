@@ -21,9 +21,10 @@ export const dashboardMenuItems = [
   },
 ];
 
-export const colors = {
-  primary: {
-    text: "text-cyan-300",
-    background: "bg-cyan-300",
-  },
-};
+export const TMDB_IMAGE_BASE_URL = "https://image.tmdb.org/t/p";
+
+export function capitalizeFirstLetter(inputString: string) {
+  return inputString.charAt(0).toUpperCase() + inputString.slice(1);
+}
+
+export const HEADER_TRANSPARENT = ["movie", "home", "series"];

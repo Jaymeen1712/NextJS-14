@@ -1,10 +1,20 @@
 import React from "react";
 import Carousel from "./carousel";
+import { CommonCardType } from "@/types";
 
-const CarouselContainer = () => {
+const CarouselContainer = ({
+  commonDetails,
+  setDashboardImage,
+}: {
+  commonDetails: CommonCardType[];
+  setDashboardImage: React.Dispatch<React.SetStateAction<string>>;
+}) => {
   return (
-    <div className="my-8 items-center mx-16">
-      <Carousel />
+    <div className="items-center mx-16">
+      <Carousel
+        commonDetails={commonDetails}
+        setDashboardImage={setDashboardImage}
+      />
     </div>
   );
 };

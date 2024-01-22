@@ -1,11 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
-import img1 from "@/images/ford-mustang-gt-fastback-drive-motel-neon-5k-5120x2880-355.jpg";
-import img2 from "@/images/marvels-spider-man-miles-morales-photo-mode-dark-background-5120x2880-3444.jpg";
-import img3 from "@/images/wallhaven-01vpev.jpg";
-import img4 from "@/images/wallhaven-1kvqr1.jpg";
+import { Swiper, SwiperProps, SwiperRef, SwiperSlide } from "swiper/react";
 import CarouselImage from "./image";
 
 import "swiper/css";
@@ -13,19 +9,38 @@ import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
 
 import CarouselDetails from "./details";
-import { PaginationOptions } from "swiper/types";
 import CarouselPaginationButtons from "./controls/pagination-buttons";
 
 import "./controls/pagination.css";
+import { CommonCardType } from "@/types";
+import { TMDB_IMAGE_BASE_URL, capitalizeFirstLetter } from "@/utils";
 
-const pagination: PaginationOptions = {
-  // clickable: true,
-};
-
-const chips = ["HD", "Movie", "2023"];
-
-const Carousel = () => {
+const Carousel = ({
+  commonDetails,
+  setDashboardImage,
+}: {
+  commonDetails: CommonCardType[];
+  setDashboardImage: React.Dispatch<React.SetStateAction<string>>;
+}) => {
   const swiperRef = useRef<SwiperRef>(null);
+
+  const handleSlideChange: SwiperProps["onActiveIndexChange"] = (swiper) => {
+    if (swiperRef) {
+      const activeSlide = swiperRef.current?.swiper.slides[swiper.activeIndex];
+
+      const imageElement = activeSlide?.querySelector("img");
+
+      const encodedUrl = imageElement?.getAttribute("src");
+
+      const decodedUrl = decodeURIComponent(encodedUrl || "");
+
+      const filename =
+        decodedUrl.substring(decodedUrl.lastIndexOf("/") + 1).split(".")[0] +
+        ".jpg";
+
+      setDashboardImage(filename);
+    }
+  };
 
   return (
     <div className="grid grid-cols-12 items-center justify-center">
@@ -42,51 +57,44 @@ const Carousel = () => {
             modifier: 1,
             slideShadows: false,
           }}
+          onActiveIndexChange={handleSlideChange}
         >
-          <SwiperSlide>
-            <div className="grid grid-cols-2 gap-14 items-center">
-              <CarouselImage src={img1} alt="image" />
-              <CarouselDetails
-                chips={chips}
-                title={"Napoleon"}
-                rating="3"
-                description="An epic that details the checkered rise and fall of French Emperor Napoleon Bonaparte and his relentless journey to power through the prism of his addictive, volatile relationship with hiswith his wifeetails the checkered rise and fall of French Emperor Napoleon Bonaparte and his relentless journey "
-              />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="grid grid-cols-2 gap-8 items-center">
-              <CarouselImage src={img2} alt="image" />
-              <CarouselDetails
-                chips={chips}
-                title={"Napoleon"}
-                rating="3"
-                description="An epic that details the checkered rise and fall of French Emperor Napoleon Bonaparte and his relentless journey to power through the prism of his addictive, volatile relationship with his wife"
-              />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="grid grid-cols-2 gap-8 items-center">
-              <CarouselImage src={img3} alt="image" />
-              <CarouselDetails
-                chips={chips}
-                title={"Napoleon"}
-                rating="3"
-                description="An epic that details the checkered rise and fall of French Emperor Napoleon Bonaparte and his relentless journey to power through the prism of his addictive, volatile relationship with his wife"
-              />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="grid grid-cols-2 gap-8 items-center">
-              <CarouselImage src={img4} alt="image" />
-              <CarouselDetails
-                chips={chips}
-                title={"Napoleon"}
-                rating="3"
-                description="An epic that details the checkered rise and fall of French Emperor Napoleon Bonaparte and his relentless journey to power through the prism of his addictive, volatile relationship with his wife"
-              />
-            </div>
-          </SwiperSlide>
+          <>
+            {commonDetails.map((detail) => {
+              let chips: string[] = ["HD"];
+              if (detail.media_type) {
+                chips.push(
+                  detail.media_type.toLowerCase() === "movie"
+                    ? "Movie"
+                    : "TV Series"
+                );
+              }
+
+              detail.release_date &&
+                chips.push(detail.release_date?.split("-")[0]);
+
+              const title = detail.title || detail.name || "Title";
+
+              return (
+                <SwiperSlide key={detail.id}>
+                  <div className="grid grid-cols-2 gap-14 items-center">
+                    <CarouselImage
+                      src={`${TMDB_IMAGE_BASE_URL}/original${detail.backdrop_path}`}
+                      alt="image"
+                    />
+                    <CarouselDetails
+                      detailId={detail.id}
+                      chips={chips}
+                      title={capitalizeFirstLetter(title)}
+                      rating={detail.vote_average}
+                      description={detail.overview}
+                      type={detail.media_type}
+                    />
+                  </div>
+                </SwiperSlide>
+              );
+            })}
+          </>
         </Swiper>
       </div>
       <CarouselPaginationButtons ref={swiperRef} />

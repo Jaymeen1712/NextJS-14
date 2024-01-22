@@ -1,54 +1,51 @@
-"use client";
+import getTrending from "@/apis/common/get-trending";
+import React from "react";
+import TrendingList from "./components/trending-list";
+import { getMoviesLatestAPI, getMoviesTrendingAPI } from "@/apis/movie";
+import { getTvLatestAPI, getTvTrendingAPI } from "@/apis/tv-series";
+import LatestMoviesList from "./components/latest-movies-list";
+import LatestTvList from "./components/latest-tv-list";
+import DashboardCarousel from "./components/dashboard-carousel";
 
-import CarouselContainer from "@/components/carousel/container";
-import MovieListContainer from "@/components/movie-list/container";
-import { colors } from "@/utils";
-import { Button } from "@nextui-org/react";
-import React, { useState } from "react";
-
-const HomePage = () => {
-  const [currentTab, setCurrentTab] = useState("movies");
+const HomePage = async () => {
+  const { response: trending, errors: trendingErrors } = await getTrending();
+  const { response: trendingMovies, errors: trendingMoviesErrors } =
+    await getMoviesTrendingAPI();
+  const { response: trendingTv, errors: trendingTvErrors } =
+    await getTvTrendingAPI();
+  const { response: latestMovies, errors: latestMoviesErrors } =
+    await getMoviesLatestAPI();
+  const { response: latestTv, errors: latestTvErrors } = await getTvLatestAPI();
 
   return (
     <div className="bg-neutral-900 flex-1">
-      <CarouselContainer />
-      <MovieListContainer
-        title="Trending"
-        headerRight={
-          <div className="space-x-3">
-            <Button
-              onClick={() => {
-                setCurrentTab("movies");
-              }}
-              className={`px-6 text-base ${
-                currentTab === "movies"
-                  ? `${colors.primary.background} text-black`
-                  : `bg-transparent text-white hover:${colors.primary.text} border-1 `
-              }`}
-              radius="full"
-              disableRipple
-              disableAnimation
-            >
-              Movies
-            </Button>
-            <Button
-              onClick={() => {
-                setCurrentTab("tvSeries");
-              }}
-              className={`px-6 text-base ${
-                currentTab === "tvSeries"
-                  ? `${colors.primary.background} text-black`
-                  : `bg-transparent text-white hover:${colors.primary.text} border-1 `
-              }`}
-              radius="full"
-              disableRipple
-              disableAnimation
-            >
-              TV Series
-            </Button>
-          </div>
-        }
-      />
+      {!trendingErrors && trending.results && (
+        <DashboardCarousel data={trending.results} />
+      )}
+      {(!trendingMoviesErrors || !trendingTvErrors) && (
+        <TrendingList
+          movieData={trendingMovies.results}
+          tvData={trendingTv.results}
+        />
+      )}
+      {!latestMoviesErrors && (
+        <LatestMoviesList
+          data={
+            latestMovies.results.length > 20
+              ? latestMovies.results.slice(0, 20)
+              : latestMovies.results
+          }
+        />
+      )}
+      {!latestTvErrors && (
+        <LatestTvList
+          data={
+            latestTv.results.length > 20
+              ? latestTv.results.slice(0, 20)
+              : latestTv.results
+          }
+        />
+      )}
     </div>
   );
 };
