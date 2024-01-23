@@ -8,15 +8,7 @@ interface SimilarContainerProps {
 
 const SimilarContainer = ({ data }: SimilarContainerProps) => {
   return (
-    <div>
-      {data && (
-        <MovieListContainer
-          data={data}
-          title="You may also like"
-          type="carousel"
-        />
-      )}
-    </div>
+    <MovieListContainer data={data} title="You may also like" type="carousel" />
   );
 };
 

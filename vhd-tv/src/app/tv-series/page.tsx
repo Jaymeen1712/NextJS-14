@@ -1,9 +1,18 @@
-import React from 'react'
+import { getTvPopularAPI } from "@/apis/tv-series";
+import React from "react";
+import TvSeriesContainer from "./components/tv-series-container";
 
-const TvSeriesPage = () => {
+const MoviesPage = async () => {
+  const { response: tvTopRatedResponse, errors: tvTopRatedErrors } =
+  await getTvPopularAPI();
+
   return (
-    <div>TvSeriesPage</div>
-  )
-}
+    <div className="flex-1 bg-neutral-900">
+      {!tvTopRatedErrors && (
+        <TvSeriesContainer data={tvTopRatedResponse.results} />
+      )}
+    </div>
+  );
+};
 
-export default TvSeriesPage
+export default MoviesPage;

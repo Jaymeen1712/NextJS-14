@@ -22,7 +22,7 @@ const HomePage = async () => {
       {!trendingErrors && trending.results && (
         <DashboardCarousel data={trending.results} />
       )}
-      {(!trendingMoviesErrors || !trendingTvErrors) && (
+      {(!trendingMoviesErrors && !trendingTvErrors) && (
         <TrendingList
           movieData={trendingMovies.results}
           tvData={trendingTv.results}
