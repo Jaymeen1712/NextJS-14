@@ -6,8 +6,8 @@ const logoIcon = () => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     stroke="#FFFFFF"
-    width={66}
-    height={66}
+    width={80}
+    height={80}
   >
     <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
     <g

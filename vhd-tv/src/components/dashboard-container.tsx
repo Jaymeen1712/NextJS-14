@@ -6,13 +6,16 @@ import Link from "next/link";
 
 const DashboardContainer = () => {
   return (
-    <div className="my-12 flex flex-col items-center justify-center rounded-3xl bg-sky-900 p-12">
+    <div className="my-12 flex w-[40%] flex-col items-center justify-center rounded-3xl bg-sky-900 p-12">
       <div className="mb-6">
-        <Logo />
+        <Logo size={7}/>
       </div>
-      <Button className={`bg-primary p-6`}>
-        <Link href={"/home"} className="flex justify-center items-center">
-          Browse all movies & series <FaArrowRight  className="ml-2"/>
+      <Button className={"bg-primary p-8 my-6"}>
+        <Link
+          href={"/home"}
+          className="flex items-center justify-center text-lg"
+        >
+          Browse All Movies & Series <FaArrowRight className="ml-4" />
         </Link>
       </Button>
     </div>

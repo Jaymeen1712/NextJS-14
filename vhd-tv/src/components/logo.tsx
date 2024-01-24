@@ -1,11 +1,10 @@
-import LogoIcon from "@/images/icons/logo";
 import React from "react";
 
-const Logo = () => {
+const Logo = ({ size = 5 }: { size?: 5 | 7 | 9 }) => {
   return (
-    <div className="flex justify-center items-end">
-      <span className={`font-extrabold text-6xl text-primary`}>V</span>
-      <LogoIcon />
+    <div className={`flex items-center justify-center text-${size}xl`}>
+      <span className={`font-bold text-primary subpixel-antialiased`}>V</span>
+      <span className="ml-1 font-bold -tracking-widest text-white">HD</span>
     </div>
   );
 };
