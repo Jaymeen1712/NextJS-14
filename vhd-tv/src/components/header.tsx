@@ -33,7 +33,7 @@ const Header = () => {
 
   return (
     <Navbar
-      className={`hello m-0 bg-neutral-950 shadow ${
+      className={`hello m-0 bg-neutral-950 shadow items-center ${
         HEADER_TRANSPARENT.includes(selectedMenuItem.toLowerCase()) &&
         "bg-0 absolute left-0 right-0 top-0"
       }`}

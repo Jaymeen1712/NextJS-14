@@ -13,7 +13,7 @@ const SearchContainer = ({ data, search }: SearchContainerProps) => {
   return (
     <>
       {data && (
-        <div className="fixed mt-4 min-w-[600px] rounded-2xl bg-stone-900 px-6 py-4 backdrop-blur-xl">
+        <div className="fixed mt-2 min-w-[600px] rounded-2xl border-2 border-white/50 bg-stone-900 px-6 py-4 shadow-xl backdrop-blur-xl">
           {data.slice(0, 5).map((subData) => (
             <div key={subData.id}>
               <SearchList data={subData} />
@@ -26,7 +26,7 @@ const SearchContainer = ({ data, search }: SearchContainerProps) => {
             >
               <Button
                 fullWidth
-                className="mt-4 bg-white/50 text-base text-white hover:text-primary"
+                className="mt-4 bg-primary text-base"
                 disableAnimation
                 disableRipple
               >

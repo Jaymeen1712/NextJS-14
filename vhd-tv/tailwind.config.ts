@@ -18,7 +18,10 @@ const config: Config = {
       },
       textColor: {
         primary: "rgb(103 232 249)",
-      }
+      },
+      borderColor: {
+        primary: "rgb(103 232 249)",
+      },
     },
   },
   darkMode: "class",
