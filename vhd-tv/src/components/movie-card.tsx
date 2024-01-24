@@ -32,7 +32,9 @@ const MovieCard = ({ data }: MovieCardProps) => {
     );
   }
 
-  data.release_date && chips.push(data.release_date?.split("-")[0]);
+  data.release_date
+    ? chips.push(data.release_date?.split("-")[0])
+    : chips.push(data.first_air_date?.split("-")[0]);
 
   const title = data.title || data.name || "Title";
 
@@ -63,7 +65,7 @@ const MovieCard = ({ data }: MovieCardProps) => {
           width={width}
           height={height}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent from-70% to-neutral-800" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent from-40% to-neutral-800" />
       </CardBody>
       <CardFooter className="delay-20 absolute bottom-3 left-3 w-[89%] justify-between rounded-lg py-2 transition ease-in-out group-hover:-translate-y-1 group-hover:bg-white/10 group-hover:backdrop-blur-sm">
         <div className="grid-rows-2">

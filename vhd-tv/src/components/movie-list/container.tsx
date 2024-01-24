@@ -9,6 +9,8 @@ interface MovieListContainerProps {
   data: CommonCardType[] | null;
   headerRight?: React.ReactNode;
   type?: "scroll" | "carousel";
+  pagination?: boolean;
+  setCurrentPage?: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const MovieListContainer = ({
@@ -16,16 +18,18 @@ const MovieListContainer = ({
   headerRight,
   data,
   type = "scroll",
+  pagination = false,
+  setCurrentPage,
 }: MovieListContainerProps) => {
   return (
     <div className="mx-16 my-24">
       <MovieListHeader title={title} headerRight={headerRight} />
-      <div className="my-6 min-h-1300">
+      <div className="min-h-1300 my-6">
         {data &&
           (type === "scroll" ? (
-            <MovieListBodyScroll data={data} />
+            <MovieListBodyScroll data={data} pagination={pagination} setCurrentPage={setCurrentPage} />
           ) : (
-            <MovieListBodyCarousel data={data}/>
+            <MovieListBodyCarousel data={data} />
           ))}
       </div>
     </div>
