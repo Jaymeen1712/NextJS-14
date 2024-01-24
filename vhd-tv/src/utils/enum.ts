@@ -4,6 +4,7 @@ const COMMON_API = {
   ALL_TRENDING: `/trending/all/${TIME_WINDOW}`,
   MEDIA_VIDEOS: "/:media/:mediaId/videos",
   MEDIA_DETAILS: "/:media/:mediaId",
+  SEARCH_MEDIA: "/search/multi"
 };
 
 const MOVIE_API = {

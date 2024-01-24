@@ -12,6 +12,7 @@ import Link from "next/link";
 import { HEADER_TRANSPARENT, dashboardMenuItems } from "@/utils";
 import Logo from "@/components/logo";
 import { usePathname } from "next/navigation";
+import Search from "./search/search";
 
 const Header = () => {
   const pathname = usePathname();
@@ -48,20 +49,7 @@ const Header = () => {
 
       <NavbarContent justify="start" className="gap-12">
         <NavbarItem>
-          <Input
-            size="sm"
-            radius="sm"
-            // startContent={<Search />}
-            placeholder="Search for movies or tv series"
-            variant="faded"
-            labelPlacement="outside"
-            // classNames={{
-            //   label: "text-white",
-            //   input: ["bg-neutral-700"],
-            //   mainWrapper: ["bg-neutral-700"]
-            // }}
-            className="min-w-[750px]"
-          />
+          <Search />
         </NavbarItem>
 
         {/* Menu Items */}
