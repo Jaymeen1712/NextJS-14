@@ -28,9 +28,10 @@ const Search = () => {
     const getSearchResults = async () => {
       if (debouncedValue) {
         const { response: searchMediaResponse, errors: searchMediaErrors } =
-          await getSearchMediaAPI(debouncedValue);
-
+        await getSearchMediaAPI(debouncedValue);
+        
         if (!searchMediaErrors) {
+          console.log("🚀 ~ getSearchResults ~ searchMediaResponse:", searchMediaResponse)
           setSearchResults(searchMediaResponse.results);
         }
       }

@@ -20,7 +20,7 @@ const SearchList = ({ data }: SearchListProps) => {
         <div className="flex items-center">
           <Image
             alt={data.title || data.name}
-            src={`${TMDB_IMAGE_BASE_URL}/original${data.poster_path}`}
+            src={`${TMDB_IMAGE_BASE_URL}/original${data.media_type === ("movie" || "tv") ? data.poster_path : data.profile_path}`}
             width={50}
             height={50}
           />
@@ -28,16 +28,24 @@ const SearchList = ({ data }: SearchListProps) => {
             <h1 className="text-sm group-hover:text-primary">
               {capitalizeFirstLetter(data.title || data.name)}
             </h1>
-            <span className="flex items-center text-xs">
-              {capitalizeFirstLetter(data.media_type)}
-              {roundDot}
-              <FaStar size={10} className="mr-2 text-white" />
-              {data.vote_average.toFixed(1)}
-              {roundDot}
-              {data.release_date
-                ? data.release_date.split("-")[0]
-                : data.first_air_date.split("-")[0]}
-            </span>
+            {data.media_type === ("movie" || "tv") && (
+              <span className="flex items-center text-xs">
+                {capitalizeFirstLetter(data.media_type)}
+                {roundDot}
+                <FaStar size={10} className="mr-2 text-white" />
+                {data.vote_average.toFixed(1)}
+                {roundDot}
+                {data.release_date
+                  ? data.release_date.split("-")[0]
+                  : data.first_air_date.split("-")[0]}
+              </span>
+            )}
+            {data.media_type === "person" && (
+              <span className="flex items-center text-xs">
+                {capitalizeFirstLetter(data.known_for_department)}
+                {roundDot}
+              </span>
+            )}
           </div>
         </div>
       </div>

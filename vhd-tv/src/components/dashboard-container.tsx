@@ -8,7 +8,7 @@ const DashboardContainer = () => {
   return (
     <div className="my-12 flex w-[40%] flex-col items-center justify-center rounded-3xl bg-sky-900 p-12">
       <div className="mb-6">
-        <Logo size={7}/>
+        <Logo size={72}/>
       </div>
       <Button className={"bg-primary p-8 my-6"}>
         <Link

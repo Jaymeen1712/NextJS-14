@@ -1,15 +1,40 @@
+"use client";
+
 import MovieListContainer from "@/components/movie-list/container";
 import { CommonCardType } from "@/types";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getMoviesPopularAPI } from "@/apis/movie";
 
-interface MoviesContainerProps {
-  data: CommonCardType[] | null;
-}
+const MoviesContainer = () => {
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [movieData, setMovieData] = useState<CommonCardType[]>();
 
-const MoviesContainer = ({ data }: MoviesContainerProps) => {
+  useEffect(() => {
+    const getMovieData = async () => {
+      const { response: moviesPopularResponse, errors: moviesPopularErrors } =
+        await getMoviesPopularAPI(currentPage);
+
+      if (!moviesPopularErrors) {
+        setMovieData(moviesPopularResponse.results);
+      }
+    };
+    getMovieData();
+
+    return () => {
+      setMovieData([]);
+    };
+  }, [currentPage]);
+
   return (
     <div>
-      <MovieListContainer data={data} title="Movies" />
+      {movieData && (
+        <MovieListContainer
+          data={movieData}
+          title="Movies"
+          pagination={true}
+          setCurrentPage={setCurrentPage}
+        />
+      )}
     </div>
   );
 };

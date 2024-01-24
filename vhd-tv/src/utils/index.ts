@@ -14,11 +14,6 @@ export const dashboardMenuItems = [
     name: "Tv series",
     link: "/tv-series",
   },
-  {
-    key: "top-imdb",
-    name: "Top imdb",
-    link: "/top-imdb",
-  },
 ];
 
 export const TMDB_IMAGE_BASE_URL = "https://image.tmdb.org/t/p";
