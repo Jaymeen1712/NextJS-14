@@ -47,15 +47,19 @@ const CarouselDetails = ({
         <Rating stop={rating} />
       </div>
       <div className="mb-8 line-clamp-1 text-white">{description}</div>
-      <Button
-        className={`group w-[12rem] items-center justify-center rounded-full bg-primary bg-opacity-30 px-8 py-7 hover:scale-110 hover:cursor-pointer hover:bg-opacity-100`}
-        disableRipple
+      <Link
+        href={`/watch/${type === "tv" ? "series" : "movie"}/${detailId}`}
       >
-        <FaPlay className={`text-primary group-hover:text-black`} size={15} />
-        <h1 className={`ml-1 text-primary group-hover:text-black`}>
-          Watch now
-        </h1>
-      </Button>
+        <Button
+          className={`group w-[12rem] items-center justify-center rounded-full bg-primary bg-opacity-30 px-8 py-7 hover:scale-110 hover:cursor-pointer hover:bg-opacity-100`}
+          disableRipple
+        >
+          <FaPlay className={`text-primary group-hover:text-black`} size={15} />
+          <h1 className={`ml-1 text-primary group-hover:text-black`}>
+            Watch now
+          </h1>
+        </Button>
+      </Link>
     </div>
   );
 };

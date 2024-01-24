@@ -66,7 +66,7 @@ const Carousel = ({
                 chips.push(
                   detail.media_type.toLowerCase() === "movie"
                     ? "Movie"
-                    : "TV Series"
+                    : "TV Series",
                 );
               }
 
@@ -77,10 +77,12 @@ const Carousel = ({
 
               return (
                 <SwiperSlide key={detail.id}>
-                  <div className="grid grid-cols-2 gap-14 items-center">
+                  <div className="grid grid-cols-2 items-center gap-14">
                     <CarouselImage
                       src={`${TMDB_IMAGE_BASE_URL}/original${detail.backdrop_path}`}
                       alt="image"
+                      type={detail.media_type}
+                      detailId={detail.id}
                     />
                     <CarouselDetails
                       detailId={detail.id}
