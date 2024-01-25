@@ -37,7 +37,7 @@ const SearchList = ({ data }: SearchListProps) => {
                 {roundDot}
                 {data.release_date
                   ? data.release_date.split("-")[0]
-                  : data.first_air_date.split("-")[0]}
+                  : data.first_air_date && data.first_air_date.split("-")[0]}
               </span>
             )}
             {data.media_type === "person" && (
