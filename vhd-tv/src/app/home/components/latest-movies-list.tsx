@@ -1,5 +1,6 @@
 import MovieListContainer from "@/components/movie-list/container";
 import { CommonCardType } from "@/types";
+import Link from "next/link";
 import React from "react";
 import { FaAngleRight } from "react-icons/fa";
 
@@ -12,15 +13,17 @@ const LatestMoviesList = ({ data }: LatestMoviesListProps) => {
     <MovieListContainer
       title="Latest Movies"
       headerRight={
-        <button
-          className="bg-none group pt-1"
-          // onClick={handleClick}
-        >
-          <FaAngleRight
-            className={"text-white group-hover:text-primary"}
-            size={22}
-          />
-        </button>
+        <Link href={"/movies"}>
+          <button
+            className="group bg-none pt-1"
+            // onClick={handleClick}
+          >
+            <FaAngleRight
+              className={"text-white group-hover:text-primary"}
+              size={22}
+            />
+          </button>
+        </Link>
       }
       data={data}
       type="carousel"
