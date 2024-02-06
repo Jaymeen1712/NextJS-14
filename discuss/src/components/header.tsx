@@ -1,16 +1,15 @@
-import React from "react";
+import Link from 'next/link';
+import { Suspense } from 'react';
 import {
-  Input,
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-} from "@nextui-org/react";
-import Link from "next/link";
+} from '@nextui-org/react';
+import HeaderAuth from '@/components/header-auth';
+import SearchInput from '@/components/search-input';
 
-import HeaderAuth from "./header-auth";
-
-const Header = async () => {
+export default function Header() {
   return (
     <Navbar className="shadow mb-6">
       <NavbarBrand>
@@ -18,10 +17,11 @@ const Header = async () => {
           Discuss
         </Link>
       </NavbarBrand>
-
       <NavbarContent justify="center">
         <NavbarItem>
-          <Input />
+          <Suspense>
+            <SearchInput />
+          </Suspense>
         </NavbarItem>
       </NavbarContent>
 
@@ -30,6 +30,4 @@ const Header = async () => {
       </NavbarContent>
     </Navbar>
   );
-};
-
-export default Header;
+}

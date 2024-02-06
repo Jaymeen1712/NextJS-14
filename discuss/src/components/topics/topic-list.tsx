@@ -1,23 +1,22 @@
-import paths from "@/app/path";
-import { db } from "@/db";
-import { Chip } from "@nextui-org/react";
-import Link from "next/link";
-import React from "react";
+import Link from 'next/link';
+import { Chip } from '@nextui-org/react';
+import { db } from '@/db';
+import paths from '@/paths';
 
-const TopicList = async () => {
+export default async function TopicList() {
   const topics = await db.topic.findMany();
 
-  const renderedList = topics.map((topic) => (
-    <div key={topic.id}>
-      <Link href={paths.topicShow(topic.slug)}>
-        <Chip color="warning" variant="shadow">
-          {topic.slug}
-        </Chip>
-      </Link>
-    </div>
-  ));
+  const renderedTopics = topics.map((topic) => {
+    return (
+      <div key={topic.id}>
+        <Link href={paths.topicShow(topic.slug)}>
+          <Chip color="warning" variant="shadow">
+            {topic.slug}
+          </Chip>
+        </Link>
+      </div>
+    );
+  });
 
-  return <div className="flex flex-row gap-2 flex-wrap">{renderedList}</div>;
-};
-
-export default TopicList;
+  return <div className="flex flex-row flex-wrap gap-2">{renderedTopics}</div>;
+}
